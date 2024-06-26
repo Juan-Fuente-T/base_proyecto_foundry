@@ -27,4 +27,21 @@ contract EducatETH is ERC1155 {
             emit URI(baseURI, ids[i]);
         }
     }
+    function batchBurn(
+        address from,
+        uint256[] memory ids,
+        uint256[] memory amounts
+    ) public {
+        _batchBurn(from, ids, amounts);  
+    }
+
+    function burn(
+        address from,
+        uint256 id,
+        uint256 amount
+    ) public {
+        _burn(from, id, amount);
+
+        // emit TransferSingle(msg.sender, from, address(0), id, amount);
+    }
 }
